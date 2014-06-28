@@ -2,13 +2,16 @@
 
 /**
  * @ngdoc function
- * @name amberambercouchcoukApp.controller:MainCtrl
+ * @name amberApp.controller:ClientCtrl
  * @description
- * # MainCtrl
- * Controller of the amberambercouchcoukApp
+ * # ClientCtrl
+ * Controller of the amberApp
  */
 angular.module('amberApp')
-        .controller('ClientCtrl', function($scope) {
-          $scope.awesomeThings = 'testing';
+        .controller('ClientCtrl', function($scope, Client) {
+          $scope.clients = Client.query();
         });
 
+angular.module('amberApp').factory('Client', function($resource) {
+  return $resource('http://amberapi.ambercouch.local/api/v1/client', {}, {query: {method: 'GET'}});
+});

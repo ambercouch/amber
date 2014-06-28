@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name amberambercouchcoukApp.controller:MainCtrl
+ * @name amberApp.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the amberambercouchcoukApp
+ * Controller of the amberApp
  */
-angular.module('amberambercouchcoukApp')
+angular.module('amberApp')
         .controller('MainCtrl', function($scope) {
           $scope.awesomeThings = [
             'HTML5 Boilerplate',

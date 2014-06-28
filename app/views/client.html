@@ -1,31 +1,35 @@
 <div class="jumbotron">
-  <h1>'Client, 'Client, Client!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+  <h1>Ambercouch Clients</h1>
+
 </div>
 
 <div class="row marketing">
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>Ipsum</th>
-        <th>Ipsum</th>
-        <th>Ipsum</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Tel No.</th>
+        <th>Address</th>
+        <th>Notes</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
+      <tr ng-repeat="client in clients.clients">
         <td>
-          {{awesomeThings}}
+          {{client['client_name']}}
         </td>
         <td>
-          Lorem
+          {{client['client_email']}}
         </td>
         <td>
-          Lorem
+          {{client['client_tel']}}
+        </td>
+        <td>
+          {{client['client_adderss']}}
+        </td>
+        <td>
+          {{client['client_notes']}}
         </td>
       </tr>
     </tbody>

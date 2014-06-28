@@ -2,16 +2,16 @@
 
 /**
  * @ngdoc function
- * @name amberambercouchcoukApp.controller:AboutCtrl
+ * @name amberApp.controller:AboutCtrl
  * @description
  * # AboutCtrl
- * Controller of the amberambercouchcoukApp
+ * Controller of the amberApp
  */
-angular.module('amberambercouchcoukApp')
-  .controller('AboutCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+angular.module('amberApp')
+        .controller('AboutCtrl', function($scope) {
+          $scope.awesomeThings = [
+            'HTML5 Boilerplate',
+            'AngularJS',
+            'Karma'
+          ];
+        });
