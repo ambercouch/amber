@@ -3,19 +3,27 @@
 
 </div>
 
-<div class="row marketing">
+<div class="row clients">
+  <form class="form-search">
+    <div class="input-append">
+      <input type="text" ng-model="query" class="input-medium search-query" placeholder="Search">
+      <button ng-click="reset()" type="submit" class="btn"><i class="icon-search"></i></button>
+    </div>
+    <button ng-click="query = '';
+          reset()" ng-disabled="!query" type="submit" class="btn">Reset</button>
+  </form>
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Email</th>
+        <th><a ng-click="sort('client_name')">Name</a></th>
+        <th><a ng-click="sort('client_email')">Email</a> <i ng-show="show_arrow('client_email')" class="glyphicon glyphicon-arrow-{{arrow}}"></th>
         <th>Tel No.</th>
         <th>Address</th>
         <th>Notes</th>
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="client in clients.clients">
+      <tr ng-repeat="client in clients.clients.data">
         <td>
           {{client['client_name']}}
         </td>
