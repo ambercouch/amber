@@ -1,0 +1,32 @@
+<div class="jumbotron">
+  <h1>New Client</h1>
+</div>
+<div class="row clients">
+  <div class="col-lg-12">
+
+    <form role="form">
+      <div class="form-group" ng-class="{error: form.client_name.$invalid}">
+        <label for="clientName">Client Name : </label>
+        <input type="text" ng-model="item.client_name" class="form-control" id="clientName" placeholder="Client name">
+      </div>
+      <div class="form-group" ng-class="{error: form.client_email.$invalid}">
+        <label for="clientEmail" >Client Email : </label>
+        <input type="email" ng-model="item.client_email" class="form-control" id="clientEmail" placeholder="Client email address">
+      </div>
+      <div class="form-group" ng-class="{error: form.client_tel.$invalid}">
+        <label for="clientTel">Client Tel : </label>
+        <input type="tel" ng-model="item.client_tel" class="form-control" id="clientTel" placeholder="Client telephone number">
+      </div>
+      <div class="form-group" ng-class="{error: form.client_address.$invalid}">
+        <label for="clientTel">Client Address : </label>
+        <input type="text" ng-model="item.client_address" class="form-control" id="clientTel" placeholder="Client address">
+      </div>
+
+      <div class="form-group" ng-class="{error: form.client_notes.$invalid}">
+        <label for="clientName">Notes : </label>
+        <textarea class="form-control" ng-model="item.client_notes" id="clientNotes" placeholder="Client telephone number"></textarea>
+      </div>
+      <button type="submit" ng-click="save()" class="btn btn-default">Add Client </button>
+    </form>
+  </div>
+</div>

@@ -23,13 +23,21 @@ angular
                     templateUrl: 'views/main.html',
                     controller: 'MainCtrl'
                   })
-                  .when('/client', {
-                    templateUrl: 'views/client.html',
+                  .when('/clients', {
+                    templateUrl: 'views/clients.html',
                     controller: 'ClientCtrl'
                   })
                   .when('/about', {
                     templateUrl: 'views/about.html',
                     controller: 'AboutCtrl'
+                  })
+                  .when('/clients/new', {
+                    templateUrl: 'views/clients/new.html',
+                    controller: 'ClientNewCtrl'
+                  })
+                  .when('/clients/edit/:clientId', {
+                    templateUrl: 'views/clients/new.html',
+                    controller: 'ClientEditCtrl'
                   })
                   .otherwise({
                     redirectTo: '/'
@@ -41,7 +49,7 @@ angular.module('amberApp').directive('sorted', function() {
     scope: true,
     transclude: true,
     template: '<a ng-click="do_sort()" ng-transclude></a>' +
-            ' <i ng-show="show_arrow()" class="glyphicon glyphicon-arrow-{{arrow}}"></i>',
+            ' <i ng-show="show_arrow(sort)" class="glyphicon glyphicon-chevron-{{arrow}}"></i>',
     controller: function($scope, $element, $attrs) {
 
       $scope.sort = $attrs.sorted;

@@ -1,6 +1,5 @@
 <div class="jumbotron">
   <h1>Ambercouch Clients</h1>
-
 </div>
 <div class="row controls">
   <div class="col-lg-6">
@@ -27,6 +26,7 @@
           <th sorted="client_tel" >Tel No.</th>
           <th>Address</th>
           <th>Notes</th>
+          <th><a title="Add a new Client" href="#/clients/new"><span class="glyphicon glyphicon-plus"></span></a></th>
         </tr>
       </thead>
       <tbody>
@@ -45,6 +45,10 @@
           </td>
           <td>
             {{client['client_notes']}}
+          </td>
+          <td>
+            <a href="#/clients/edit/{{client['id']}}"><span class="glyphicon glyphicon-edit "></span></a>
+            <a ng-click="delete()"><span class="glyphicon glyphicon-remove"></span></a>
           </td>
         </tr>
       </tbody>

@@ -7,10 +7,15 @@
  * # ClientCtrl
  * Controller of the amberApp
  */
+angular.module('amberApp').factory('Client', function($resource) {
+  return $resource('http://amberapi.ambercouch.local/api/v1/client/:id', {id: '@id'}, {query: {method: 'GET', isArray: false}, update: {method: 'PUT'}});
+});
+
 angular.module('amberApp')
         .controller('ClientCtrl', function($scope, Client) {
           $scope.search = function() {
             Client.query({
+              q: $scope.query,
               sort: $scope.sort_order,
               direction: $scope.direction,
               limit: $scope.limit,
@@ -20,11 +25,8 @@ angular.module('amberApp')
               $scope.clients = $scope.clients.concat(obj.clients.data);
             });
           };
-          $scope.sort_order = 'client_name';
-          $scope.direction = 'desc';
-          $scope.arrow = 'down';
 
-
+          //sort the cols
           $scope.sort_by = function(col) {
 
             if ($scope.sort_order === col) {
@@ -37,28 +39,42 @@ angular.module('amberApp')
             }
 
             $scope.sort_order = col;
-            $scope.search();
+            $scope.reset();
           };
+
+          //show the arrows
           $scope.show_arrow = function(col) {
             return ($scope.sort_order == col);
           };
 
+          //show more
           $scope.show_more = function() {
             $scope.page += 1;
-
             $scope.search();
           };
-
-          $scope.limit = 2;
-          $scope.page = 1;
           $scope.has_more = function() {
             return $scope.more;
           };
-          $scope.more = true;
-          $scope.clients = [];
-          $scope.search();
+
+          //reset
+          $scope.reset = function() {
+            $scope.limit = 2;
+            $scope.page = 1;
+            $scope.more = true;
+            $scope.clients = [];
+            $scope.search();
+          };
+
+          //delete
+          $scope.delete = function() {
+            var id = this.client.id;
+            Client.delete({id: id});
+          };
+
+          $scope.sort_order = '';
+          $scope.direction = 'asc';
+          $scope.arrow = 'down';
+
+          $scope.reset();
         });
 
-angular.module('amberApp').factory('Client', function($resource) {
-  return $resource('http://amberapi.ambercouch.local/api/v1/client/', {}, {query: {method: 'GET'}});
-});
